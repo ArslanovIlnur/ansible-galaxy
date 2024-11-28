@@ -1,0 +1,26 @@
+---
+- hosts: all
+  become: true
+  vars_files:
+    - vars/default.yml
+
+  roles:
+    - geerlingguy.nginx
+    - geerlingguy.postgresql
+    - geerlingguy.php-versions
+    - geerlingguy.php
+    - geerlingguy.php-pgsql
+    - geerlingguy.composer
+    - geerlingguy.drush
+    - geerlingguy.drupal
+
+  tasks:
+    # Drush command to install Drupal
+    - name: Install Drupal with Drush
+      command: >
+        /var/www/drupal/vendor/bin/drush site-install standard
+        -y --root=/var/www/drupal/web
+        --site-name=Drupal
+        --account-name=drupal
+        --account-pass=drupal
+        --db-url=pgsql://drupal:drupal@127.0.0.1/drupal

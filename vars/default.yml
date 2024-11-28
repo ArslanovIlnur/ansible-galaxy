@@ -1,0 +1,48 @@
+---
+# Drupal settings
+drupal_domain: "192.168.56.8"
+drupal_composer_install_dir: "/var/www/drupal"
+drupal_core_path: "{{ drupal_composer_install_dir }}/web"
+drupal_install_site: true
+drupal_build_composer_project: true
+drupal_db_user: "drupal"
+drupal_db_password: "drupal"
+drupal_db_name: "drupal"
+drupal_version: "11"
+drush_launcher_version: "0.10.2"
+drush_version: "13"
+drupal_composer_project_package: "drupal/recommended-project:^{{ drupal_version }}@dev"
+drupal_composer_project_options: "--prefer-dist --stability dev --no-interaction"
+drupal_composer_dependencies:
+  - "drush/drush:^{{ drush_version }}"
+
+# PHP settings
+php_version: '8.3'
+php_enable_php_fpm: true
+php_packages_extra: [ 'php-zip', 'unzip', 'php8.3-pgsql' ]
+php_memory_limit: '1024M'
+
+# Nginx settings
+nginx_vhosts:
+  - server_name: "{{ drupal_domain }}"
+    root: "{{ drupal_core_path }}"
+    index: index.php
+    extra_parameters: |
+      location / {
+          try_files $uri /index.php?$query_string;
+      }
+      location ~ \.php$ {
+          include snippets/fastcgi-php.conf;
+          fastcgi_pass unix:/var/run/php/php8.3-fpm.sock;
+          fastcgi_param SCRIPT_FILENAME $document_root$fastcgi_script_name;
+          include fastcgi_params;
+      }
+nginx_remove_default_vhost: true
+
+# PostgreSQL Settings
+postgresql_databases:
+  - name: drupal
+
+postgresql_users:
+  - name: drupal
+    password: drupal

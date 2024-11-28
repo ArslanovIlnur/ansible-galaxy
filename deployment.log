@@ -1,0 +1,562 @@
+
+PLAY [all] *********************************************************************
+
+TASK [Gathering Facts] *********************************************************
+ok: [192.168.56.8]
+
+TASK [geerlingguy.nginx : Include OS-specific variables.] **********************
+ok: [192.168.56.8]
+
+TASK [geerlingguy.nginx : Define nginx_user.] **********************************
+ok: [192.168.56.8]
+
+TASK [geerlingguy.nginx : include_tasks] ***************************************
+skipping: [192.168.56.8]
+
+TASK [geerlingguy.nginx : include_tasks] ***************************************
+included: /home/noor/.ansible/roles/geerlingguy.nginx/tasks/setup-Ubuntu.yml for 192.168.56.8
+
+TASK [geerlingguy.nginx : Ensure dirmngr is installed (gnupg dependency).] *****
+ok: [192.168.56.8]
+
+TASK [geerlingguy.nginx : Add PPA for Nginx (if configured).] ******************
+skipping: [192.168.56.8]
+
+TASK [geerlingguy.nginx : Ensure nginx will reinstall if the PPA was just added.] ***
+skipping: [192.168.56.8]
+
+TASK [geerlingguy.nginx : include_tasks] ***************************************
+included: /home/noor/.ansible/roles/geerlingguy.nginx/tasks/setup-Debian.yml for 192.168.56.8
+
+TASK [geerlingguy.nginx : Update apt cache.] ***********************************
+ok: [192.168.56.8]
+
+TASK [geerlingguy.nginx : Ensure nginx is installed.] **************************
+ok: [192.168.56.8]
+
+TASK [geerlingguy.nginx : include_tasks] ***************************************
+skipping: [192.168.56.8]
+
+TASK [geerlingguy.nginx : include_tasks] ***************************************
+skipping: [192.168.56.8]
+
+TASK [geerlingguy.nginx : include_tasks] ***************************************
+skipping: [192.168.56.8]
+
+TASK [geerlingguy.nginx : include_tasks] ***************************************
+skipping: [192.168.56.8]
+
+TASK [geerlingguy.nginx : Remove default nginx vhost config file (if configured).] ***
+ok: [192.168.56.8]
+
+TASK [geerlingguy.nginx : Ensure nginx_vhost_path exists.] *********************
+ok: [192.168.56.8]
+
+TASK [geerlingguy.nginx : Add managed vhost config files.] *********************
+changed: [192.168.56.8] => (item={'server_name': '192.168.56.8', 'root': '/var/www/drupal/web', 'index': 'index.php', 'extra_parameters': 'location / {\n    try_files $uri /index.php?$query_string;\n}\nlocation ~ \\.php$ {\n    include snippets/fastcgi-php.conf;\n    fastcgi_pass unix:/var/run/php/php8.3-fpm.sock;\n    fastcgi_param SCRIPT_FILENAME $document_root$fastcgi_script_name;\n    include fastcgi_params;\n}\n'})
+
+TASK [geerlingguy.nginx : Remove managed vhost config files.] ******************
+skipping: [192.168.56.8] => (item={'server_name': '192.168.56.8', 'root': '/var/www/drupal/web', 'index': 'index.php', 'extra_parameters': 'location / {\n    try_files $uri /index.php?$query_string;\n}\nlocation ~ \\.php$ {\n    include snippets/fastcgi-php.conf;\n    fastcgi_pass unix:/var/run/php/php8.3-fpm.sock;\n    fastcgi_param SCRIPT_FILENAME $document_root$fastcgi_script_name;\n    include fastcgi_params;\n}\n'}) 
+skipping: [192.168.56.8]
+
+TASK [geerlingguy.nginx : Remove legacy vhosts.conf file.] *********************
+ok: [192.168.56.8]
+
+TASK [geerlingguy.nginx : Copy nginx configuration in place.] ******************
+ok: [192.168.56.8]
+
+TASK [geerlingguy.nginx : Ensure nginx service is running as configured.] ******
+ok: [192.168.56.8]
+
+TASK [geerlingguy.postgresql : include_tasks] **********************************
+included: /home/noor/.ansible/roles/geerlingguy.postgresql/tasks/variables.yml for 192.168.56.8
+
+TASK [geerlingguy.postgresql : Include OS-specific variables (Debian).] ********
+ok: [192.168.56.8]
+
+TASK [geerlingguy.postgresql : Include OS-specific variables (RedHat).] ********
+skipping: [192.168.56.8]
+
+TASK [geerlingguy.postgresql : Include OS-specific variables (Amazon).] ********
+skipping: [192.168.56.8]
+
+TASK [geerlingguy.postgresql : Include OS-specific variables (Fedora).] ********
+skipping: [192.168.56.8]
+
+TASK [geerlingguy.postgresql : Define postgresql_packages.] ********************
+ok: [192.168.56.8]
+
+TASK [geerlingguy.postgresql : Define postgresql_version.] *********************
+ok: [192.168.56.8]
+
+TASK [geerlingguy.postgresql : Define postgresql_daemon.] **********************
+ok: [192.168.56.8]
+
+TASK [geerlingguy.postgresql : Define postgresql_data_dir.] ********************
+ok: [192.168.56.8]
+
+TASK [geerlingguy.postgresql : Define postgresql_bin_path.] ********************
+ok: [192.168.56.8]
+
+TASK [geerlingguy.postgresql : Define postgresql_config_path.] *****************
+ok: [192.168.56.8]
+
+TASK [geerlingguy.postgresql : Define postgresql_unix_socket_directories_mode.] ***
+ok: [192.168.56.8]
+
+TASK [geerlingguy.postgresql : Define postgresql_log_dir.] *********************
+ok: [192.168.56.8]
+
+TASK [geerlingguy.postgresql : Define postgresql_effective_log_dir, if postgresql_log_dir is absolute] ***
+skipping: [192.168.56.8]
+
+TASK [geerlingguy.postgresql : Define postgresql_effective_log_dir, if postgresql_log_dir is relative] ***
+ok: [192.168.56.8]
+
+TASK [geerlingguy.postgresql : include_tasks] **********************************
+skipping: [192.168.56.8]
+
+TASK [geerlingguy.postgresql : include_tasks] **********************************
+included: /home/noor/.ansible/roles/geerlingguy.postgresql/tasks/setup-Debian.yml for 192.168.56.8
+
+TASK [geerlingguy.postgresql : Ensure PostgreSQL Python libraries are installed.] ***
+ok: [192.168.56.8]
+
+TASK [geerlingguy.postgresql : Ensure PostgreSQL packages are installed.] ******
+ok: [192.168.56.8]
+
+TASK [geerlingguy.postgresql : Ensure all configured locales are present.] *****
+ok: [192.168.56.8] => (item=en_US.UTF-8)
+
+TASK [geerlingguy.postgresql : Force-restart PostgreSQL after new locales are generated.] ***
+skipping: [192.168.56.8]
+
+TASK [geerlingguy.postgresql : include_tasks] **********************************
+skipping: [192.168.56.8]
+
+TASK [geerlingguy.postgresql : include_tasks] **********************************
+included: /home/noor/.ansible/roles/geerlingguy.postgresql/tasks/initialize.yml for 192.168.56.8
+
+TASK [geerlingguy.postgresql : Set PostgreSQL environment variables.] **********
+ok: [192.168.56.8]
+
+TASK [geerlingguy.postgresql : Ensure PostgreSQL data directory exists.] *******
+ok: [192.168.56.8]
+
+TASK [geerlingguy.postgresql : Check if PostgreSQL database is initialized.] ***
+ok: [192.168.56.8]
+
+TASK [geerlingguy.postgresql : Ensure PostgreSQL database is initialized.] *****
+skipping: [192.168.56.8]
+
+TASK [geerlingguy.postgresql : Ensure PostgreSQL log directory exists.] ********
+ok: [192.168.56.8]
+
+TASK [geerlingguy.postgresql : include_tasks] **********************************
+included: /home/noor/.ansible/roles/geerlingguy.postgresql/tasks/configure.yml for 192.168.56.8
+
+TASK [geerlingguy.postgresql : Configure global settings.] *********************
+ok: [192.168.56.8] => (item={'option': 'unix_socket_directories', 'value': '/var/run/postgresql'})
+ok: [192.168.56.8] => (item={'option': 'log_directory', 'value': 'log'})
+
+TASK [geerlingguy.postgresql : Configure host based authentication (if entries are configured).] ***
+ok: [192.168.56.8]
+
+TASK [geerlingguy.postgresql : Ensure PostgreSQL unix socket dirs exist.] ******
+ok: [192.168.56.8] => (item=/var/run/postgresql)
+
+TASK [geerlingguy.postgresql : Ensure PostgreSQL is started and enabled on boot.] ***
+ok: [192.168.56.8]
+
+TASK [geerlingguy.postgresql : Ensure PostgreSQL users are present.] ***********
+ok: [192.168.56.8] => (item={'name': 'drupal', 'password': 'drupal'})
+
+TASK [geerlingguy.postgresql : Ensure PostgreSQL databases are present.] *******
+ok: [192.168.56.8] => (item={'name': 'drupal'})
+
+TASK [geerlingguy.postgresql : Ensure PostgreSQL users are configured correctly.] ***
+ok: [192.168.56.8] => (item=None)
+ok: [192.168.56.8]
+
+TASK [geerlingguy.php-versions : Include OS-specific variables.] ***************
+ok: [192.168.56.8] => (item=/home/noor/.ansible/roles/geerlingguy.php-versions/vars/Debian.yml)
+
+TASK [geerlingguy.php-versions : Remove missing JSON extension for PHP 8.0 (included by default)] ***
+ok: [192.168.56.8]
+
+TASK [geerlingguy.php-versions : Define PHP variables.] ************************
+ok: [192.168.56.8] => (item={'key': 'php_conf_paths', 'value': '__php_conf_paths'})
+ok: [192.168.56.8] => (item={'key': 'php_extension_conf_paths', 'value': '__php_extension_conf_paths'})
+ok: [192.168.56.8] => (item={'key': 'php_fpm_daemon', 'value': '__php_fpm_daemon'})
+ok: [192.168.56.8] => (item={'key': 'php_fpm_conf_path', 'value': '__php_fpm_conf_path'})
+ok: [192.168.56.8] => (item={'key': 'php_fpm_pool_conf_path', 'value': '__php_fpm_pool_conf_path'})
+ok: [192.168.56.8] => (item={'key': 'php_mysql_package', 'value': '__php_mysql_package'})
+ok: [192.168.56.8] => (item={'key': 'php_redis_package', 'value': '__php_redis_package'})
+ok: [192.168.56.8] => (item={'key': 'php_memcached_package', 'value': '__php_memcached_package'})
+ok: [192.168.56.8] => (item={'key': 'php_pgsql_package', 'value': '__php_pgsql_package'})
+ok: [192.168.56.8] => (item={'key': 'php_tideways_module_path', 'value': '__php_tideways_module_path'})
+ok: [192.168.56.8] => (item={'key': 'php_uploadprogress_module_path', 'value': '__php_uploadprogress_module_path'})
+ok: [192.168.56.8] => (item={'key': 'php_xdebug_module_path', 'value': '__php_xdebug_module_path'})
+ok: [192.168.56.8] => (item={'key': 'php_xhprof_module_path', 'value': '__php_xhprof_module_path'})
+ok: [192.168.56.8] => (item={'key': 'php_packages', 'value': '__php_packages'})
+
+TASK [geerlingguy.php-versions : Define php_install_recommends variable.] ******
+ok: [192.168.56.8]
+
+TASK [geerlingguy.php-versions : include_tasks] ********************************
+included: /home/noor/.ansible/roles/geerlingguy.php-versions/tasks/setup-Debian.yml for 192.168.56.8
+
+TASK [geerlingguy.php-versions : Set the correct opcache filename (Ubuntu/Debian).] ***
+ok: [192.168.56.8]
+
+TASK [geerlingguy.php-versions : Ensure dirmngr is installed (gnupg dependency).] ***
+ok: [192.168.56.8]
+
+TASK [geerlingguy.php-versions : Add repository for PHP versions (Ubuntu).] ****
+ok: [192.168.56.8]
+
+TASK [geerlingguy.php-versions : Add dependencies for PHP versions (Debian).] ***
+skipping: [192.168.56.8]
+
+TASK [geerlingguy.php-versions : Add Ondrej Sury's apt key (Debian).] **********
+skipping: [192.168.56.8]
+
+TASK [geerlingguy.php-versions : Add Ondrej Sury's repo (Debian).] *************
+skipping: [192.168.56.8]
+
+TASK [geerlingguy.php-versions : Update apt caches after repo is added (Debian).] ***
+skipping: [192.168.56.8]
+
+TASK [geerlingguy.php-versions : Purge PHP version packages (besides the currently chosen php_version).] ***
+ok: [192.168.56.8]
+
+TASK [geerlingguy.php-versions : Also purge php-common package if any versions were just purged.] ***
+skipping: [192.168.56.8]
+
+TASK [geerlingguy.php : Include OS-specific variables.] ************************
+ok: [192.168.56.8]
+
+TASK [geerlingguy.php : Include distribution and version-specific vars.] *******
+ok: [192.168.56.8] => (item=/home/noor/.ansible/roles/geerlingguy.php/vars/Ubuntu-24.yml)
+
+TASK [geerlingguy.php : Set the default PHP version for Debian-based OSes.] ****
+ok: [192.168.56.8]
+
+TASK [geerlingguy.php : Define the name of the JSON extension package on Debian for PHP <8.] ***
+skipping: [192.168.56.8]
+
+TASK [geerlingguy.php : Add the JSON extension on Debian for PHP <8.] **********
+skipping: [192.168.56.8]
+
+TASK [geerlingguy.php : Define php_packages.] **********************************
+skipping: [192.168.56.8]
+
+TASK [geerlingguy.php : Define php_webserver_daemon.] **************************
+ok: [192.168.56.8]
+
+TASK [geerlingguy.php : Define php_conf_paths.] ********************************
+skipping: [192.168.56.8]
+
+TASK [geerlingguy.php : Define php_extension_conf_paths.] **********************
+skipping: [192.168.56.8]
+
+TASK [geerlingguy.php : Define php_apc_conf_filename.] *************************
+ok: [192.168.56.8]
+
+TASK [geerlingguy.php : Define php_opcache_conf_filename (Ubuntu 16.04).] ******
+skipping: [192.168.56.8]
+
+TASK [geerlingguy.php : Define php_opcache_conf_filename.] *********************
+skipping: [192.168.56.8]
+
+TASK [geerlingguy.php : Define php_fpm_conf_path.] *****************************
+skipping: [192.168.56.8]
+
+TASK [geerlingguy.php : include_tasks] *****************************************
+skipping: [192.168.56.8]
+
+TASK [geerlingguy.php : include_tasks] *****************************************
+included: /home/noor/.ansible/roles/geerlingguy.php/tasks/setup-Debian.yml for 192.168.56.8
+
+TASK [geerlingguy.php : Update apt cache.] *************************************
+ok: [192.168.56.8]
+
+TASK [geerlingguy.php : Ensure PHP packages are installed.] ********************
+ok: [192.168.56.8]
+
+TASK [geerlingguy.php : Delete APCu configuration file if this role will provide one.] ***
+skipping: [192.168.56.8] => (item=/etc/php/8.3/fpm/conf.d) 
+skipping: [192.168.56.8] => (item=/etc/php/8.3/apache2/conf.d) 
+skipping: [192.168.56.8] => (item=/etc/php/8.3/cli/conf.d) 
+skipping: [192.168.56.8]
+
+TASK [geerlingguy.php : Delete OpCache configuration file if this role will provide one.] ***
+skipping: [192.168.56.8] => (item=/etc/php/8.3/fpm/conf.d) 
+skipping: [192.168.56.8] => (item=/etc/php/8.3/apache2/conf.d) 
+skipping: [192.168.56.8] => (item=/etc/php/8.3/cli/conf.d) 
+skipping: [192.168.56.8]
+
+TASK [geerlingguy.php : include_tasks] *****************************************
+skipping: [192.168.56.8]
+
+TASK [geerlingguy.php : include_tasks] *****************************************
+included: /home/noor/.ansible/roles/geerlingguy.php/tasks/configure.yml for 192.168.56.8
+
+TASK [geerlingguy.php : Ensure configuration directories exist.] ***************
+ok: [192.168.56.8] => (item=/etc/php/8.3/fpm)
+ok: [192.168.56.8] => (item=/etc/php/8.3/apache2)
+ok: [192.168.56.8] => (item=/etc/php/8.3/cli)
+ok: [192.168.56.8] => (item=/etc/php/8.3/fpm/conf.d)
+ok: [192.168.56.8] => (item=/etc/php/8.3/apache2/conf.d)
+ok: [192.168.56.8] => (item=/etc/php/8.3/cli/conf.d)
+
+TASK [geerlingguy.php : Place PHP configuration file in place.] ****************
+ok: [192.168.56.8] => (item=/etc/php/8.3/fpm)
+ok: [192.168.56.8] => (item=/etc/php/8.3/apache2)
+ok: [192.168.56.8] => (item=/etc/php/8.3/cli)
+
+TASK [geerlingguy.php : include_tasks] *****************************************
+included: /home/noor/.ansible/roles/geerlingguy.php/tasks/configure-apcu.yml for 192.168.56.8
+
+TASK [geerlingguy.php : Check for existing APCu config files.] *****************
+ok: [192.168.56.8] => (item=/etc/php/8.3/fpm/conf.d)
+ok: [192.168.56.8] => (item=/etc/php/8.3/apache2/conf.d)
+ok: [192.168.56.8] => (item=/etc/php/8.3/cli/conf.d)
+
+TASK [geerlingguy.php : Remove any non-role-supplied APCu config files.] *******
+skipping: [192.168.56.8] => (item=[{'changed': False, 'msg': 'All paths examined', 'matched': 1, 'examined': 36, 'skipped_paths': {}, 'invocation': {'module_args': {'paths': ['/etc/php/8.3/fpm/conf.d'], 'contains': 'extension(\\s+)?=(\\s+)?apc[u]?\\.so', 'patterns': ['*'], 'read_whole_file': False, 'file_type': 'file', 'age_stamp': 'mtime', 'recurse': False, 'hidden': False, 'follow': False, 'get_checksum': False, 'use_regex': False, 'exact_mode': True, 'excludes': None, 'age': None, 'size': None, 'depth': None, 'mode': None, 'encoding': None}}, 'failed': False, 'item': '/etc/php/8.3/fpm/conf.d', 'ansible_loop_var': 'item'}, {'path': '/etc/php/8.3/fpm/conf.d/20-apcu.ini', 'mode': '0644', 'isdir': False, 'ischr': False, 'isblk': False, 'isreg': True, 'isfifo': False, 'islnk': False, 'issock': False, 'uid': 0, 'gid': 0, 'size': 66, 'inode': 400077, 'dev': 2050, 'nlink': 1, 'atime': 1732773504.6558414, 'mtime': 1732773500.4789193, 'ctime': 1732773501.1499066, 'gr_name': 'root', 'pw_name': 'root', 'wusr': True, 'rusr': True, 'xusr': False, 'wgrp': False, 'rgrp': True, 'xgrp': False, 'woth': False, 'roth': True, 'xoth': False, 'isuid': False, 'isgid': False}]) 
+skipping: [192.168.56.8] => (item=[{'changed': False, 'msg': 'All paths examined', 'matched': 1, 'examined': 2, 'skipped_paths': {}, 'invocation': {'module_args': {'paths': ['/etc/php/8.3/apache2/conf.d'], 'contains': 'extension(\\s+)?=(\\s+)?apc[u]?\\.so', 'patterns': ['*'], 'read_whole_file': False, 'file_type': 'file', 'age_stamp': 'mtime', 'recurse': False, 'hidden': False, 'follow': False, 'get_checksum': False, 'use_regex': False, 'exact_mode': True, 'excludes': None, 'age': None, 'size': None, 'depth': None, 'mode': None, 'encoding': None}}, 'failed': False, 'item': '/etc/php/8.3/apache2/conf.d', 'ansible_loop_var': 'item'}, {'path': '/etc/php/8.3/apache2/conf.d/20-apcu.ini', 'mode': '0644', 'isdir': False, 'ischr': False, 'isblk': False, 'isreg': True, 'isfifo': False, 'islnk': False, 'issock': False, 'uid': 0, 'gid': 0, 'size': 66, 'inode': 400078, 'dev': 2050, 'nlink': 1, 'atime': 1732773505.4068277, 'mtime': 1732773501.9368918, 'ctime': 1732773502.516881, 'gr_name': 'root', 'pw_name': 'root', 'wusr': True, 'rusr': True, 'xusr': False, 'wgrp': False, 'rgrp': True, 'xgrp': False, 'woth': False, 'roth': True, 'xoth': False, 'isuid': False, 'isgid': False}]) 
+skipping: [192.168.56.8] => (item=[{'changed': False, 'msg': 'All paths examined', 'matched': 1, 'examined': 36, 'skipped_paths': {}, 'invocation': {'module_args': {'paths': ['/etc/php/8.3/cli/conf.d'], 'contains': 'extension(\\s+)?=(\\s+)?apc[u]?\\.so', 'patterns': ['*'], 'read_whole_file': False, 'file_type': 'file', 'age_stamp': 'mtime', 'recurse': False, 'hidden': False, 'follow': False, 'get_checksum': False, 'use_regex': False, 'exact_mode': True, 'excludes': None, 'age': None, 'size': None, 'depth': None, 'mode': None, 'encoding': None}}, 'failed': False, 'item': '/etc/php/8.3/cli/conf.d', 'ansible_loop_var': 'item'}, {'path': '/etc/php/8.3/cli/conf.d/20-apcu.ini', 'mode': '0644', 'isdir': False, 'ischr': False, 'isblk': False, 'isreg': True, 'isfifo': False, 'islnk': False, 'issock': False, 'uid': 0, 'gid': 0, 'size': 66, 'inode': 400079, 'dev': 2050, 'nlink': 1, 'atime': 1732773506.1428142, 'mtime': 1732773503.3168662, 'ctime': 1732773503.8958554, 'gr_name': 'root', 'pw_name': 'root', 'wusr': True, 'rusr': True, 'xusr': False, 'wgrp': False, 'rgrp': True, 'xgrp': False, 'woth': False, 'roth': True, 'xoth': False, 'isuid': False, 'isgid': False}]) 
+skipping: [192.168.56.8]
+
+TASK [geerlingguy.php : Ensure APCu config file is present.] *******************
+ok: [192.168.56.8] => (item=/etc/php/8.3/fpm/conf.d)
+ok: [192.168.56.8] => (item=/etc/php/8.3/apache2/conf.d)
+ok: [192.168.56.8] => (item=/etc/php/8.3/cli/conf.d)
+
+TASK [geerlingguy.php : Remove APCu config file if APC is disabled.] ***********
+skipping: [192.168.56.8] => (item=/etc/php/8.3/fpm/conf.d) 
+skipping: [192.168.56.8] => (item=/etc/php/8.3/apache2/conf.d) 
+skipping: [192.168.56.8] => (item=/etc/php/8.3/cli/conf.d) 
+skipping: [192.168.56.8]
+
+TASK [geerlingguy.php : include_tasks] *****************************************
+included: /home/noor/.ansible/roles/geerlingguy.php/tasks/configure-opcache.yml for 192.168.56.8
+
+TASK [geerlingguy.php : Check for existing OpCache config files.] **************
+ok: [192.168.56.8] => (item=/etc/php/8.3/fpm/conf.d)
+ok: [192.168.56.8] => (item=/etc/php/8.3/apache2/conf.d)
+ok: [192.168.56.8] => (item=/etc/php/8.3/cli/conf.d)
+
+TASK [geerlingguy.php : Remove any non-role-supplied OpCache config files.] ****
+skipping: [192.168.56.8] => (item=[{'changed': False, 'msg': 'All paths examined', 'matched': 1, 'examined': 36, 'skipped_paths': {}, 'invocation': {'module_args': {'paths': ['/etc/php/8.3/fpm/conf.d'], 'contains': 'zend_extension(\\s+)?=(\\s+)?opcache\\.so', 'patterns': ['*'], 'read_whole_file': False, 'file_type': 'file', 'age_stamp': 'mtime', 'recurse': False, 'hidden': False, 'follow': False, 'get_checksum': False, 'use_regex': False, 'exact_mode': True, 'excludes': None, 'age': None, 'size': None, 'depth': None, 'mode': None, 'encoding': None}}, 'failed': False, 'item': '/etc/php/8.3/fpm/conf.d', 'ansible_loop_var': 'item'}, {'path': '/etc/php/8.3/fpm/conf.d/10-opcache.ini', 'mode': '0644', 'isdir': False, 'ischr': False, 'isblk': False, 'isreg': True, 'isfifo': False, 'islnk': False, 'issock': False, 'uid': 0, 'gid': 0, 'size': 302, 'inode': 400080, 'dev': 2050, 'nlink': 1, 'atime': 1732774140.3671823, 'mtime': 1732773506.9857986, 'ctime': 1732773507.7117853, 'gr_name': 'root', 'pw_name': 'root', 'wusr': True, 'rusr': True, 'xusr': False, 'wgrp': False, 'rgrp': True, 'xgrp': False, 'woth': False, 'roth': True, 'xoth': False, 'isuid': False, 'isgid': False}]) 
+skipping: [192.168.56.8] => (item=[{'changed': False, 'msg': 'All paths examined', 'matched': 1, 'examined': 2, 'skipped_paths': {}, 'invocation': {'module_args': {'paths': ['/etc/php/8.3/apache2/conf.d'], 'contains': 'zend_extension(\\s+)?=(\\s+)?opcache\\.so', 'patterns': ['*'], 'read_whole_file': False, 'file_type': 'file', 'age_stamp': 'mtime', 'recurse': False, 'hidden': False, 'follow': False, 'get_checksum': False, 'use_regex': False, 'exact_mode': True, 'excludes': None, 'age': None, 'size': None, 'depth': None, 'mode': None, 'encoding': None}}, 'failed': False, 'item': '/etc/php/8.3/apache2/conf.d', 'ansible_loop_var': 'item'}, {'path': '/etc/php/8.3/apache2/conf.d/10-opcache.ini', 'mode': '0644', 'isdir': False, 'ischr': False, 'isblk': False, 'isreg': True, 'isfifo': False, 'islnk': False, 'issock': False, 'uid': 0, 'gid': 0, 'size': 302, 'inode': 400081, 'dev': 2050, 'nlink': 1, 'atime': 1732774140.2641823, 'mtime': 1732773508.4927711, 'ctime': 1732773509.0817604, 'gr_name': 'root', 'pw_name': 'root', 'wusr': True, 'rusr': True, 'xusr': False, 'wgrp': False, 'rgrp': True, 'xgrp': False, 'woth': False, 'roth': True, 'xoth': False, 'isuid': False, 'isgid': False}]) 
+skipping: [192.168.56.8] => (item=[{'changed': False, 'msg': 'All paths examined', 'matched': 1, 'examined': 36, 'skipped_paths': {}, 'invocation': {'module_args': {'paths': ['/etc/php/8.3/cli/conf.d'], 'contains': 'zend_extension(\\s+)?=(\\s+)?opcache\\.so', 'patterns': ['*'], 'read_whole_file': False, 'file_type': 'file', 'age_stamp': 'mtime', 'recurse': False, 'hidden': False, 'follow': False, 'get_checksum': False, 'use_regex': False, 'exact_mode': True, 'excludes': None, 'age': None, 'size': None, 'depth': None, 'mode': None, 'encoding': None}}, 'failed': False, 'item': '/etc/php/8.3/cli/conf.d', 'ansible_loop_var': 'item'}, {'path': '/etc/php/8.3/cli/conf.d/10-opcache.ini', 'mode': '0644', 'isdir': False, 'ischr': False, 'isblk': False, 'isreg': True, 'isfifo': False, 'islnk': False, 'issock': False, 'uid': 0, 'gid': 0, 'size': 302, 'inode': 400082, 'dev': 2050, 'nlink': 1, 'atime': 1732773555.9489918, 'mtime': 1732773509.893746, 'ctime': 1732773510.4667356, 'gr_name': 'root', 'pw_name': 'root', 'wusr': True, 'rusr': True, 'xusr': False, 'wgrp': False, 'rgrp': True, 'xgrp': False, 'woth': False, 'roth': True, 'xoth': False, 'isuid': False, 'isgid': False}]) 
+skipping: [192.168.56.8]
+
+TASK [geerlingguy.php : Ensure OpCache config file is present.] ****************
+ok: [192.168.56.8] => (item=/etc/php/8.3/fpm/conf.d)
+ok: [192.168.56.8] => (item=/etc/php/8.3/apache2/conf.d)
+ok: [192.168.56.8] => (item=/etc/php/8.3/cli/conf.d)
+
+TASK [geerlingguy.php : Remove OpCache config file if OpCache is disabled.] ****
+skipping: [192.168.56.8] => (item=/etc/php/8.3/fpm/conf.d) 
+skipping: [192.168.56.8] => (item=/etc/php/8.3/apache2/conf.d) 
+skipping: [192.168.56.8] => (item=/etc/php/8.3/cli/conf.d) 
+skipping: [192.168.56.8]
+
+TASK [geerlingguy.php : include_tasks] *****************************************
+included: /home/noor/.ansible/roles/geerlingguy.php/tasks/configure-fpm.yml for 192.168.56.8
+
+TASK [geerlingguy.php : Define php_fpm_daemon.] ********************************
+skipping: [192.168.56.8]
+
+TASK [geerlingguy.php : Define php_fpm_pool_conf_path.] ************************
+skipping: [192.168.56.8]
+
+TASK [geerlingguy.php : Define php_fpm_pool_user.] *****************************
+ok: [192.168.56.8]
+
+TASK [geerlingguy.php : Define php_fpm_pool_group.] ****************************
+ok: [192.168.56.8]
+
+TASK [geerlingguy.php : Stat php_fpm_pool_conf_path] ***************************
+ok: [192.168.56.8]
+
+TASK [geerlingguy.php : Ensure the default pool directory exists.] *************
+skipping: [192.168.56.8]
+
+TASK [geerlingguy.php : Create fpm pools.] *************************************
+changed: [192.168.56.8] => (item={'pool_name': 'www', 'pool_template': 'www.conf.j2', 'pool_listen': '127.0.0.1:9000', 'pool_listen_allowed_clients': '127.0.0.1', 'pool_pm': 'dynamic', 'pool_pm_max_children': 50, 'pool_pm_start_servers': 5, 'pool_pm_min_spare_servers': 5, 'pool_pm_max_spare_servers': 5, 'pool_pm_max_requests': 0, 'pool_pm_status_path': ''})
+
+TASK [geerlingguy.php : Ensure php-fpm is started and enabled at boot (if configured).] ***
+ok: [192.168.56.8]
+
+TASK [geerlingguy.php-pgsql : Include OS-specific variables.] ******************
+ok: [192.168.56.8]
+
+TASK [geerlingguy.php-pgsql : Define php_pgsql_package.] ***********************
+skipping: [192.168.56.8]
+
+TASK [geerlingguy.php-pgsql : Install PHP PostgreSQL dependencies (RedHat).] ***
+skipping: [192.168.56.8]
+
+TASK [geerlingguy.php-pgsql : Install PHP PostgreSQL dependencies (Debian).] ***
+ok: [192.168.56.8]
+
+TASK [geerlingguy.composer : Check if requested version parameters are valid] ***
+skipping: [192.168.56.8]
+
+TASK [geerlingguy.composer : Set php_executable variable to a default if not defined.] ***
+skipping: [192.168.56.8]
+
+TASK [geerlingguy.composer : Check if Composer is installed.] ******************
+ok: [192.168.56.8]
+
+TASK [geerlingguy.composer : Get Composer installer signature.] ****************
+skipping: [192.168.56.8]
+
+TASK [geerlingguy.composer : Download Composer installer.] *********************
+skipping: [192.168.56.8]
+
+TASK [geerlingguy.composer : Run Composer installer.] **************************
+skipping: [192.168.56.8]
+
+TASK [geerlingguy.composer : Move Composer into globally-accessible location.] ***
+skipping: [192.168.56.8]
+
+TASK [geerlingguy.composer : Update Composer to latest version (if configured).] ***
+skipping: [192.168.56.8]
+
+TASK [geerlingguy.composer : Ensure composer directory exists.] ****************
+ok: [192.168.56.8]
+
+TASK [geerlingguy.composer : Add GitHub OAuth token for Composer (if configured).] ***
+skipping: [192.168.56.8]
+
+TASK [geerlingguy.composer : include_tasks] ************************************
+skipping: [192.168.56.8]
+
+TASK [geerlingguy.composer : include_tasks] ************************************
+skipping: [192.168.56.8]
+
+TASK [geerlingguy.drush : include_tasks] ***************************************
+included: /home/noor/.ansible/roles/geerlingguy.drush/tasks/install-drush-launcher.yml for 192.168.56.8
+
+TASK [geerlingguy.drush : Check current state.] ********************************
+ok: [192.168.56.8]
+
+TASK [geerlingguy.drush : Perform cleanup of old symlink.] *********************
+skipping: [192.168.56.8]
+
+TASK [geerlingguy.drush : Ensure Drush path directory exists.] *****************
+ok: [192.168.56.8]
+
+TASK [geerlingguy.drush : Install Drush.] **************************************
+ok: [192.168.56.8]
+
+TASK [geerlingguy.drush : Ensure Drush is executable.] *************************
+ok: [192.168.56.8]
+
+TASK [geerlingguy.drush : include_tasks] ***************************************
+skipping: [192.168.56.8]
+
+TASK [geerlingguy.drush : include_tasks] ***************************************
+skipping: [192.168.56.8]
+
+TASK [geerlingguy.drupal : Add backwards-compatibility shims.] *****************
+included: /home/noor/.ansible/roles/geerlingguy.drupal/tasks/backwards-compatibility.yml for 192.168.56.8
+
+TASK [geerlingguy.drupal : build_makefile shim] ********************************
+skipping: [192.168.56.8]
+
+TASK [geerlingguy.drupal : build_composer shim] ********************************
+skipping: [192.168.56.8]
+
+TASK [geerlingguy.drupal : build_composer_project shim] ************************
+skipping: [192.168.56.8]
+
+TASK [geerlingguy.drupal : install_site shim] **********************************
+skipping: [192.168.56.8]
+
+TASK [geerlingguy.drupal : drupalvm_database shim] *****************************
+skipping: [192.168.56.8]
+
+TASK [geerlingguy.drupal : Check if Drupal is already set up.] *****************
+ok: [192.168.56.8]
+
+TASK [geerlingguy.drupal : Define drush_path if it's not already defined.] *****
+ok: [192.168.56.8]
+
+TASK [geerlingguy.drupal : Define drupal_site_exists.] *************************
+ok: [192.168.56.8]
+
+TASK [geerlingguy.drupal : include_tasks] **************************************
+skipping: [192.168.56.8]
+
+TASK [geerlingguy.drupal : Define drupal_deploy_updated] ***********************
+ok: [192.168.56.8]
+
+TASK [geerlingguy.drupal : include_tasks] **************************************
+skipping: [192.168.56.8]
+
+TASK [geerlingguy.drupal : include_tasks] **************************************
+skipping: [192.168.56.8]
+
+TASK [geerlingguy.drupal : include_tasks] **************************************
+skipping: [192.168.56.8]
+
+TASK [geerlingguy.drupal : include_tasks] **************************************
+included: /home/noor/.ansible/roles/geerlingguy.drupal/tasks/build-composer-project.yml for 192.168.56.8
+
+TASK [geerlingguy.drupal : Delete old /tmp/composer-project] *******************
+skipping: [192.168.56.8]
+
+TASK [geerlingguy.drupal : Generate Drupal project with composer package in /tmp/composer-project (this may take a while).] ***
+skipping: [192.168.56.8]
+
+TASK [geerlingguy.drupal : Ensure drupal_composer_install_dir directory has proper permissions.] ***
+skipping: [192.168.56.8]
+
+TASK [geerlingguy.drupal : Move Drupal project files to drupal_composer_install_dir (this may take a while).] ***
+skipping: [192.168.56.8]
+
+TASK [geerlingguy.drupal : Install dependencies with composer require (this may take a while).] ***
+ok: [192.168.56.8] => (item=drush/drush:^13)
+
+TASK [geerlingguy.drupal : Check if a project specific Drush binary exists.] ***
+ok: [192.168.56.8]
+
+TASK [geerlingguy.drupal : Use project specific Drush if available.] ***********
+ok: [192.168.56.8]
+
+TASK [geerlingguy.drupal : include_tasks] **************************************
+included: /home/noor/.ansible/roles/geerlingguy.drupal/tasks/install-site.yml for 192.168.56.8
+
+TASK [geerlingguy.drupal : Check if site is already installed.] ****************
+ok: [192.168.56.8]
+
+TASK [geerlingguy.drupal : Configure database correctly if using PostgreSQL.] ***
+changed: [192.168.56.8]
+
+TASK [geerlingguy.drupal : Install Drupal with drush.] *************************
+changed: [192.168.56.8]
+
+TASK [geerlingguy.drupal : Install configured modules with drush.] *************
+skipping: [192.168.56.8]
+
+TASK [Install Drupal with Drush] ***********************************************
+changed: [192.168.56.8]
+
+RUNNING HANDLER [geerlingguy.nginx : reload nginx] *****************************
+changed: [192.168.56.8]
+
+RUNNING HANDLER [geerlingguy.php : restart php-fpm] ****************************
+changed: [192.168.56.8]
+
+RUNNING HANDLER [geerlingguy.drupal : clear opcache] ***************************
+changed: [192.168.56.8]
+
+PLAY RECAP *********************************************************************
+192.168.56.8               : ok=100  changed=8    unreachable=0    failed=0    skipped=69   rescued=0    ignored=0   
+
